@@ -58,3 +58,27 @@ def register(request):
 		else:
 			return render(request, "registration.html")
 	return redirect("archive")
+
+
+def authorization(request):
+	if request.user.is_anonymous:
+		if request.method == "POST":
+			form = {
+				"username": request.POST["username"], "password": request.POST["password"]
+			}
+			if form["username"] and form["password"]:
+				if not User.objects.filter(username=form["username"]).exists():
+					form["errors"] = "Пользователя с таким именем пользователя не существует"
+					return render(request, "login.html", {"form": form})
+				user = authenticate(username=form["username"], password=form["password"])
+				if user:
+					login(request, user)
+					return redirect("archive")
+				form["errors"] = "Неверный пароль"
+				return render(request, "login.html", {"form": form})
+			else:
+				form["errors"] = "Не все поля заполнены"
+				return render(request, "login.html", {"form": form})
+		else:
+			return render(request, "login.html")
+	return redirect("archive")

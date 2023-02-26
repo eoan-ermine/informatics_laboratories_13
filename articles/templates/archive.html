@@ -13,6 +13,7 @@
 	<div class="navigation_block">
 		{% if request.user.is_anonymous %}
 		<a href="{% url 'register' %}">Регистрация</a>
+		<a href="{% url 'login' %}">Логин</a>
 		{% endif %}
 	</div>
 </div>
