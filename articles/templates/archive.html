@@ -15,6 +15,7 @@
 		<a href="{% url 'register' %}">Регистрация</a>
 		<a href="{% url 'login' %}">Логин</a>
 		{% else %}
+		<a href="{% url 'create_post' %}">Создать статью</a>
 		<a href="{% url 'logout' %}">Выход из аккаунта</a>
 		{% endif %}
 	</div>
