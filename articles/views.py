@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from django.http import Http404
 
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 
 
 def archive(request):
@@ -81,4 +81,9 @@ def authorization(request):
 				return render(request, "login.html", {"form": form})
 		else:
 			return render(request, "login.html")
+	return redirect("archive")
+
+
+def logout_view(request):
+	logout(request)
 	return redirect("archive")

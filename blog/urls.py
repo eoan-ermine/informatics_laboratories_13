@@ -25,4 +25,6 @@ urlpatterns = [
     path('article/add/', views.create_post, name='create_post'),
     path('user/register/', views.register, name='register'),
     path('user/login/', views.authorization, name='login'),
+    path('user/logout/', views.logout_view, name='logout'),
+
 ]
