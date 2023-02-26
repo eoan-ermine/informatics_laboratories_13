@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "informatics-laboratories-13"
+version = "0.1.0"
+description = ""
+authors = ["Danil Sidoruk <danilsidoruknv@yandex.ru>"]
+license = "The Unlicense"
+readme = "README.md"
+packages = [{include = "informatics_laboratories_13"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+django = "^4.1.6"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
