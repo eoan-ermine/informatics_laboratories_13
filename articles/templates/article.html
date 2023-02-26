@@ -9,7 +9,12 @@
 <body>
 <div class="header">
 	<div class="logo"><img src="{{ STATIC_URL}}/static/logo.jpeg" height="50"/></div>
-	<div class="all_posts_navigation"><a href="{% url 'archive' %}">Все статьи</a></div>
+	<div class="navigation_block">
+		<a href="{% url 'archive' %}">Все статьи</a>
+		{% if request.user.is_anonymous %}
+		<a href="{% url 'register' %}">Регистрация</a>
+		{% endif %}
+	</div>
 </div>
 <div class="one-post">
 	<h2 class="post-title"><a href="/article/{{post.id}}">{{ post.title }}</a></h2>
